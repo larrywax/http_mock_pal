@@ -49,6 +49,9 @@ defmodule HttpMockPal.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:cowboy, "~> 1.0"}, {:plug_cowboy, "~> 1.0"}, {:ex_doc, ">= 0.0.0", only: :dev}]
+    [
+      {:plug_cowboy, "~> 2.0"}, 
+      {:ex_doc, ">= 0.0.0", only: :dev}
+    ]
   end
 end
