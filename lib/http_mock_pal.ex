@@ -3,6 +3,7 @@ defmodule HttpMockPal do
   otp entry point
   """
   use Application
+
   import Enum
 
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
@@ -29,7 +30,7 @@ defmodule HttpMockPal do
       end
     end)
     |> map(fn {router_module, port} ->
-      Plug.Adapters.Cowboy.child_spec(:http, router_module, [], port: port)
+      Plug.Cowboy.child_spec(:http, router_module, port: port, timeout: :infinity)
     end)
   end
 end
